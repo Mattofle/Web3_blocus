@@ -18,7 +18,9 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <Counter title="Big dawg" message="You are a master in the art of clicking !"/>
+      <Counter title="Big dawg" 
+              message="You are a master in the art of clicking !"
+              hoverMessage="Please click on me now !"/>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
