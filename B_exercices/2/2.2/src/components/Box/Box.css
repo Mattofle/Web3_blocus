@@ -1,0 +1,14 @@
+.box {
+    width: 200px; /* Adjust the size as needed */
+    height: 200px; /* Adjust the size as needed */
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.box + p {
+    text-align: center;
+    margin-top: 10px; /* Adjust the spacing as needed */
+}
