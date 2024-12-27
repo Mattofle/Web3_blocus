@@ -1,16 +1,25 @@
+import Button from "components/Button/Button";
+import Loading from "components/Loading/Loading";
 import Statistics from "components/Statistics/Statistics";
 import { useState } from "react";
-
-const Button = ({ handleClick, text }) => (
-  <button onClick={handleClick}>{text}</button>
-);
 
 const App = () => {
   // save clicks of each button to its own state
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
+  const [load, setLoad] = useState(false);
 
+  setTimeout(() => setLoad(true) ,3000)
+
+  if (!load) {
+    return(
+        <div>
+        <Loading />
+        
+        </div>
+    )
+  }
 
   return (
     <div>
