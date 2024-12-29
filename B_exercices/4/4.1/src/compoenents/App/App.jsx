@@ -3,9 +3,12 @@ import Book from '../Book/Book'
 
 const App = () => {
   const [persons, setPersons] = useState([
-    { name: 'Arto Hellas' }
+    { name: 'Arto Hellas',
+      number:'040-1234567'
+    }
   ]) 
   const [newName, setNewName] = useState('')
+  const [newNumber, setNewNumber] = useState('')
 
   const addPerson = (event) => {
     if(persons.find(person => person.name === newName)) {
@@ -14,7 +17,8 @@ const App = () => {
     }
     event.preventDefault()
     const personObject = {
-      name: newName
+      name: newName,
+      number: newNumber
     }
     setPersons(persons.concat(personObject))
     setNewName('')
@@ -28,6 +32,12 @@ const App = () => {
           name: <input 
             value={newName}
             onChange={(event) => setNewName(event.target.value)}
+          />
+        </div>
+        <div>
+          number: <input
+            value={newNumber}
+            onChange={(event) => setNewNumber(event.target.value)} 
           />
         </div>
         <div>

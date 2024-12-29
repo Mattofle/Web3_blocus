@@ -3,9 +3,9 @@ const Book = ({persons}) => {
         <div>
             <h1>Names</h1>
             <ul>
-                {persons.map((person, index) => (
-                <li key={index}>{person.name}</li>
-                ))}
+                {persons.map(person => 
+                    <li key={person.name}>{person.name} {person.number}</li>
+                )}
       </ul>
         </div>
     );
