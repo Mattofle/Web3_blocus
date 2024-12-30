@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Book from '../Book/Book'
-import axios from 'axios'
+import phonebookService from '../../Services/phonebookService'
 
 const App = () => {
   /* const [persons, setPersons] = useState([
@@ -16,11 +16,13 @@ const App = () => {
 
   const hook = () => {
     console.log('effect')
-    axios
-      .get('http://localhost:3001/persons')
-      .then(response => {
-        console.log('promise fulfilled')
-        setPersons(response.data)
+    phonebookService
+      .getAll()
+      .then(initialPersons => {
+        setPersons(initialPersons)
+      })
+      .catch(error => {
+        console.log('error' , error)
       })
   }
   useEffect(hook, [])
@@ -35,8 +37,14 @@ const App = () => {
       name: newName,
       number: newNumber
     }
-    setPersons(persons.concat(personObject))
-    setNewName('')
+    
+    phonebookService
+      .create(personObject)
+      .then(returnedPerson => {
+        setPersons(persons.concat(returnedPerson))
+        setNewName('')
+        setNewNumber('')
+      })
   }
 
   return (
