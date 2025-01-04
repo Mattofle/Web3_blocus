@@ -1,0 +1,8 @@
+# Because GitHub is not used with Fly.io, the file .env also gets to the Fly.io servers when the app is deployed. Because of this, the env variables defined in the file will be available there.
+
+# However, a better option is to prevent .env from being copied to Fly.io by creating in the project root the file .dockerignore, with the following contents
+
+.env
+
+# thens set the value from the command line :
+# fly secrets set MONGODB_URI="mongodb+srv://fullstack:thepasswordishere@cluster0.o1opl.mongodb.net/noteApp?retryWrites=true&w=majority"

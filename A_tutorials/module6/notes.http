@@ -1,0 +1,16 @@
+@baseUrl = http://localhost:3001
+
+###
+GET {{baseUrl}}/api/notes
+
+###
+POST {{baseUrl}}/api/notes
+Content-Type: application/json
+
+{
+    "content": "New note",
+    "important": true
+}
+
+###
+GET {{baseUrl}}/api/notes/1
