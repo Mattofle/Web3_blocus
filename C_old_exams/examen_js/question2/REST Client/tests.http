@@ -1,0 +1,49 @@
+@baseUrl=http://localhost:3001
+
+### Complete this file with your own request to tests your API### Add a valid comment
+GET {{baseUrl}}/books
+
+### 1. Ajouter un commentaire correct pour un livre
+POST {{baseUrl}}/books/6461f476d9a9da9dbeade34e/comments
+Content-Type: application/json
+
+{
+  "username": "validUser",
+  "comment": "Ce livre est fascinant et très bien écrit."
+}
+
+### 2. Tenter d’ajouter un commentaire non valide de 5 caractères
+POST {{baseUrl}}/books/6461f476d9a9da9dbeade34e/comments
+Content-Type: application/json
+
+{
+  "username": "validUser",
+  "comment": "Court"
+}
+
+### 3. Tenter d’ajouter un commentaire pour un username invalide de 3 caractères
+POST {{baseUrl}}/books/6461f476d9a9da9dbeade34e/comments
+Content-Type: application/json
+
+{
+  "username": "abc",
+  "comment": "Ce livre est fascinant et très bien écrit."
+}
+
+### 4. Tenter d’ajouter un commentaire pour un livre qui n’existe pas
+POST {{baseUrl}}/books/000000000000000000000000/comments
+Content-Type: application/json
+
+{
+  "username": "validUser",
+  "comment": "Ce livre est fascinant et très bien écrit."
+}
+
+### 5. Tenter d’ajouter un commentaire pour un livre déjà commenté par ce username
+POST {{baseUrl}}/books/6461f476d9a9da9dbeade34e/comments
+Content-Type: application/json
+
+{
+  "username": "validUser",
+  "comment": "Ce livre est fascinant et très bien écrit."
+}
